@@ -1,0 +1,34 @@
+/* style.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+#cesiumContainer {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Remove Cesium credits message */
+.cesium-viewer .cesium-widget-credits {
+  display: none;
+}
+
+/* Info Box Styling */
+#infoBox {
+  display: none;
+  position: absolute;
+  top: 200px;
+  left: 10px;
+  padding: 10px;
+  background-color: rgba(28, 211, 58, 0.9);
+  border: 1px solid #ccc;
+  z-index: 1;
+  width: 250px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+
+  
