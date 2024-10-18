@@ -126,4 +126,25 @@ Cesium.GeoJsonDataSource.load('building.geojson', { clampToGround: false })
       console.log("No entities found in the buildings data source.");
     }
   });
+  //adding the functionality
+  // Set up click event listener to display building info
+  viewer.selectedEntityChanged.addEventListener(entity => {
+    const infoBox = document.getElementById('infoBox');
   
+    // Check if an entity is selected and if it has properties
+    if (Cesium.defined(entity) && Cesium.defined(entity.properties)) {
+      const properties = entity.properties;
+  
+      // Display the infoBox
+      infoBox.style.display = 'Block';
+  
+      // Update the infoBox content with building information
+      infoBox.innerHTML = '<strong> Selected 3D Object Information:</strong><br>' +
+        properties.propertyNames.map(name => 
+          `<strong>${name}:</strong> ${properties[name].getValue()}<br>`
+        ).join('');
+    } else {
+      // Hide the infoBox if no building is selected
+      infoBox.style.display = 'none';
+    }
+  });
